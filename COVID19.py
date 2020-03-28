@@ -11,7 +11,8 @@ def getdata(url):
 myhtmldata = getdata('https://www.mohfw.gov.in/')
 soup = BeautifulSoup(myhtmldata, 'html.parser')
 mydata = ""
-states = {1: 'Andhra Pradesh',
+states = {0: 'Total Number Of Cases In India',
+          1: 'Andhra Pradesh',
           2: 'Andaman and Nicobar Islands',
           3: 'Bihar',
           4: 'Chandigarh',
@@ -39,22 +40,26 @@ states = {1: 'Andhra Pradesh',
           26: 'Uttar Pradesh',
           27: 'West Bengal'}
 print("-----------------------------------------------------------")
-print("Select a State:")
+print("Choose a Value :")
+print("---------------")
 for keys, values in sorted(states.items()):
     print(keys, ":", values)
 print("-----------------------------------------------------------")
 print('ENTER "STOP" to stop the Execution!')
 print("-----------------------------------------------------------")
+
+s = 0
 while (True):
-    selectedState = input("Enter the State Value: ").upper()
+    selectedState = input("Enter a Value: ").upper()
     if selectedState == "STOP":
         break
     else:
         selectedState = int(selectedState)
-        if selectedState <= 1 or selectedState >= 27:
+        if selectedState < 0 or selectedState > 27:
             print("Invalid Input: 'Enter Valid State Value'")
             break
-    for tr in soup.find_all('tbody')[9].find_all('tr')[0:27]:
+    s = 0
+    for tr in soup.find_all('tbody')[9].find_all('tr')[0:28]:
         mydata = tr.get_text()
         mydata1 = mydata[1:]
         state_list = mydata1.split("\n")
@@ -64,5 +69,8 @@ while (True):
             state_list[4]+"\n" + "Total number of Death:" + state_list[5]
         if state_list[1] == states[selectedState]:
             print(details)
+        if selectedState == 0 and state_list[0] == "Total number of confirmed cases in India":
+            print("Total number of confirmed cases in India :",
+                  int(state_list[1].split("#")[0]))
     print()
 print("-----------------------------------------------------------")
