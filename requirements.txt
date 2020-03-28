@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 bs4==0.0.1
 plyer==1.4.3
 requests==2.11.1
+=======
+bs4==0.0.1
+plyer==1.4.3
+requests==2.20.0
+>>>>>>> c9c96cdcb5bccd90286a9a115dbee6e823c23edb
