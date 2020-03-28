@@ -17,4 +17,4 @@ Source : https://www.mohfw.gov.in/
 * Install python3 in your system
 * Clone or Download this Repository
 * Type `cd <path_to_clonned_repository>`
-* Type `COVID19.py`
+* Run `COVID19.py`
