@@ -14,33 +14,35 @@ mydata = ""
 states = {0: 'Total Number Of Cases In India',
           1: 'Andhra Pradesh',
           2: 'Andaman and Nicobar Islands',
-          3: 'Bihar',
-          4: 'Chandigarh',
-          5: 'Chhattisgarh',
-          6: 'Delhi',
-          7: 'Goa',
-          8: 'Gujarat',
-          9: 'Haryana',
-          10: 'Himachal Pradesh',
-          11: 'Jammu and Kashmir',
-          12: 'Karnataka',
-          13: 'Kerala',
-          14: 'Ladakh',
-          15: 'Madhya Pradesh',
-          16: 'Maharashtra',
-          17: 'Manipur',
-          18: 'Mizoram',
-          19: 'Odisha',
-          20: 'Puducherry',
-          21: 'Punjab',
-          22: 'Rajasthan',
-          23: 'Tamil Nadu',
-          24: 'Telengana',
-          25: 'Uttarakhand',
-          26: 'Uttar Pradesh',
-          27: 'West Bengal'}
+          3: 'Assam',
+          4: 'Bihar',
+          5: 'Chandigarh',
+          6: 'Chhattisgarh',
+          7: 'Delhi',
+          8: 'Goa',
+          9: 'Gujarat',
+          10: 'Haryana',
+          11: 'Himachal Pradesh',
+          12: 'Jammu and Kashmir',
+          13: 'Jharkhand',
+          14: 'Karnataka',
+          15: 'Kerala',
+          16: 'Ladakh',
+          17: 'Madhya Pradesh',
+          18: 'Maharashtra',
+          19: 'Manipur',
+          20: 'Mizoram',
+          21: 'Odisha',
+          22: 'Puducherry',
+          23: 'Punjab',
+          24: 'Rajasthan',
+          25: 'Tamil Nadu',
+          26: 'Telengana',
+          27: 'Uttarakhand',
+          28: 'Uttar Pradesh',
+          29: 'West Bengal'}
 print("-----------------------------------------------------------")
-print("Choose a Value :")
+print("Choose a Value [State / UT]:")
 print("---------------")
 for keys, values in sorted(states.items()):
     print(keys, ":", values)
@@ -55,11 +57,11 @@ while (True):
         break
     else:
         selectedState = int(selectedState)
-        if selectedState < 0 or selectedState > 27:
+        if selectedState < 0 or selectedState > 29:
             print("Invalid Input: 'Enter Valid State Value'")
             break
     s = 0
-    for tr in soup.find_all('tbody')[9].find_all('tr')[0:28]:
+    for tr in soup.find_all('tbody')[0].find_all('tr'):
         mydata = tr.get_text()
         mydata1 = mydata[1:]
         state_list = mydata1.split("\n")
