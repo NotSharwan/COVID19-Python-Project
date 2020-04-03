@@ -14,33 +14,34 @@ mydata = ""
 states = {0: 'Total Number Of Cases In India',
           1: 'Andhra Pradesh',
           2: 'Andaman and Nicobar Islands',
-          3: 'Assam',
-          4: 'Bihar',
-          5: 'Chandigarh',
-          6: 'Chhattisgarh',
-          7: 'Delhi',
-          8: 'Goa',
-          9: 'Gujarat',
-          10: 'Haryana',
-          11: 'Himachal Pradesh',
-          12: 'Jammu and Kashmir',
-          13: 'Jharkhand',
-          14: 'Karnataka',
-          15: 'Kerala',
-          16: 'Ladakh',
-          17: 'Madhya Pradesh',
-          18: 'Maharashtra',
-          19: 'Manipur',
-          20: 'Mizoram',
-          21: 'Odisha',
-          22: 'Puducherry',
-          23: 'Punjab',
-          24: 'Rajasthan',
-          25: 'Tamil Nadu',
-          26: 'Telengana',
-          27: 'Uttarakhand',
-          28: 'Uttar Pradesh',
-          29: 'West Bengal'}
+          3: 'Arunachal Pradesh',
+          4: 'Assam',
+          5: 'Bihar',
+          6: 'Chandigarh',
+          7: 'Chhattisgarh',
+          8: 'Delhi',
+          9: 'Goa',
+          10: 'Gujarat',
+          11: 'Haryana',
+          12: 'Himachal Pradesh',
+          13: 'Jammu and Kashmir',
+          14: 'Jharkhand',
+          15: 'Karnataka',
+          16: 'Kerala',
+          17: 'Ladakh',
+          18: 'Madhya Pradesh',
+          19: 'Maharashtra',
+          20: 'Manipur',
+          21: 'Mizoram',
+          22: 'Odisha',
+          23: 'Puducherry',
+          24: 'Punjab',
+          25: 'Rajasthan',
+          26: 'Tamil Nadu',
+          27: 'Telengana',
+          28: 'Uttarakhand',
+          29: 'Uttar Pradesh',
+          30: 'West Bengal'}
 print("-----------------------------------------------------------")
 print("Choose a Value [State / UT]:")
 print("---------------")
@@ -58,7 +59,7 @@ while (True):
         break
     else:
         selectedState = int(selectedState)
-        if selectedState < 0 or selectedState > 29:
+        if selectedState < 0 or selectedState > 30:
             print("Invalid Input: 'Enter Valid State Value'")
             break
     s = 0
