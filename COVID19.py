@@ -51,6 +51,7 @@ print('ENTER "STOP" to stop the Execution!')
 print("-----------------------------------------------------------")
 
 s = 0
+flag = False
 while (True):
     selectedState = input("Enter a Value: ").upper()
     if selectedState == "STOP":
@@ -65,14 +66,18 @@ while (True):
         mydata = tr.get_text()
         mydata1 = mydata[1:]
         state_list = mydata1.split("\n")
-        details = f" State :- " + state_list[1] + "\n" + "Total number of Indian cases:" + \
-            state_list[2]+"\n" + "Total number of Foreign cases:" + \
-            state_list[3]+"\n" + "Total number of Cured:" + \
-            state_list[4]+"\n" + "Total number of Death:" + state_list[5]
         if state_list[1] == states[selectedState]:
+            details = f" State :- " + state_list[1] + "\n" + "Total Confirmed Cases(Including 55 foreign Nationals) :" + \
+                state_list[2]+"\n" + "Total number of Cured/Discharged/Migrated :" + \
+                state_list[3] + "\n" + \
+                "Total number of Death :" + state_list[4]
             print(details)
         if selectedState == 0 and state_list[0] == "Total number of confirmed cases in India":
-            print("Total number of confirmed cases in India :",
-                  int(state_list[1].split("#")[0]))
+            print("-----------------------------------------------------------")
+            print("Total number of confirmed cases in India :", state_list[1])
+            flag = True
+    if flag:
+        print(state_list[0])
+        print("-----------------------------------------------------------")
     print()
 print("-----------------------------------------------------------")
