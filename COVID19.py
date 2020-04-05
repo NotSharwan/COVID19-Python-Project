@@ -68,7 +68,7 @@ while (True):
         mydata1 = mydata[1:]
         state_list = mydata1.split("\n")
         if state_list[1] == states[selectedState]:
-            details = f" State :- " + state_list[1] + "\n" + "Total Confirmed Cases(Including 55 foreign Nationals) :" + \
+            details = f" State :- " + state_list[1] + "\n" + "Total Confirmed Cases(Including 65 foreign Nationals) :" + \
                 state_list[2]+"\n" + "Total number of Cured/Discharged/Migrated :" + \
                 state_list[3] + "\n" + \
                 "Total number of Death :" + state_list[4]
