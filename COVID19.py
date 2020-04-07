@@ -8,9 +8,12 @@ def getdata(url):
     return r.text
 
 
-myhtmldata = getdata('https://www.mohfw.gov.in/')
-soup = BeautifulSoup(myhtmldata, 'html.parser')
-mydata = ""
+# URL
+URL = getdata('https://www.mohfw.gov.in/')
+soup = BeautifulSoup(URL, 'html.parser')
+DATA = ""
+
+# Dictionary of states!
 states = {0: 'Total Number Of Cases In India',
           1: 'Andhra Pradesh',
           2: 'Andaman and Nicobar Islands',
@@ -51,6 +54,11 @@ print("-----------------------------------------------------------")
 print('ENTER "STOP" to stop the Execution!')
 print("-----------------------------------------------------------")
 
+# To get Header Data
+for tr in soup.find_all('thead')[0].find_all('tr'):
+    myhead = tr.get_text()[1:]
+    head_list = myhead.split("\n")
+    print(head_list)
 s = 0
 flag = False
 while (True):
@@ -63,15 +71,17 @@ while (True):
             print("Invalid Input: 'Enter Valid State Value'")
             break
     s = 0
+
+    # To get Body Data
     for tr in soup.find_all('tbody')[0].find_all('tr'):
-        mydata = tr.get_text()
-        mydata1 = mydata[1:]
-        state_list = mydata1.split("\n")
+        DATA = tr.get_text()
+        DATA1 = DATA[1:]
+        state_list = DATA1.split("\n")
         if state_list[1] == states[selectedState]:
-            details = f" State :- " + state_list[1] + "\n" + "Total Confirmed Cases(Including 65 foreign Nationals) :" + \
-                state_list[2]+"\n" + "Total number of Cured/Discharged/Migrated :" + \
+            details = f" State :- " + state_list[1] + "\n" + head_list[2] + ": " + \
+                state_list[2]+"\n" + "Total number of "+head_list[3]+" : " + \
                 state_list[3] + "\n" + \
-                "Total number of Death :" + state_list[4]
+                "Total number of Death : " + state_list[4]
             print(details)
         if selectedState == 0 and state_list[0] == "Total number of confirmed cases in India":
             print("-----------------------------------------------------------")
