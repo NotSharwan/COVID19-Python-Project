@@ -42,9 +42,10 @@ states = {0: 'Total Number Of Cases In India',
           25: 'Rajasthan',
           26: 'Tamil Nadu',
           27: 'Telengana',
-          28: 'Uttarakhand',
-          29: 'Uttar Pradesh',
-          30: 'West Bengal'}
+          28: 'Tripura',
+          29: 'Uttarakhand',
+          30: 'Uttar Pradesh',
+          31: 'West Bengal'}
 print("-----------------------------------------------------------")
 print("Choose a Value [State / UT]:")
 print("---------------")
@@ -58,7 +59,6 @@ print("-----------------------------------------------------------")
 for tr in soup.find_all('thead')[0].find_all('tr'):
     myhead = tr.get_text()[1:]
     head_list = myhead.split("\n")
-    print(head_list)
 s = 0
 flag = False
 while (True):
@@ -67,7 +67,7 @@ while (True):
         break
     else:
         selectedState = int(selectedState)
-        if selectedState < 0 or selectedState > 30:
+        if selectedState < 0 or selectedState > 31:
             print("Invalid Input: 'Enter Valid State Value'")
             break
     s = 0
