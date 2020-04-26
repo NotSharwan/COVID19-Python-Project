@@ -1,4 +1,3 @@
-from plyer import notification
 import requests
 from bs4 import BeautifulSoup
 
@@ -22,8 +21,9 @@ for tr in soup.find_all('tbody')[0].find_all('tr'):
     sL = tr.get_text()[1:]
     sList = sL.split("\n")[:2]
     stateList.append(sList)
-stateList = stateList[:-2]
 for state in stateList:
+    if state[0] == 'Total number of confirmed cases in India':
+        break
     states[int(state[0])] = ' '.join(list(state[1].strip().split()))
 print()
 print("-----------------------------------------------------------")
@@ -66,10 +66,6 @@ while (True):
         if selectedState == 0 and state_list[0] == "Total number of confirmed cases in India":
             print("-----------------------------------------------------------")
             print("Total number of confirmed cases in India :", state_list[1])
-            flag = True
-    if flag:
-        print(state_list[0])
-        flag = False
-        print("-----------------------------------------------------------")
+            print("-----------------------------------------------------------")
     print()
 print("-----------------------------------------------------------")
